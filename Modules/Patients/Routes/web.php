@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +11,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	// Test database connection
-	try {
-	    DB::connection()->getPdo();
-	} catch (\Exception $e) {
-	    die(env('DB_HOST').env('DB_CONNECTION')."Could not connect to the database.  Please check your configuration. error:");
-	}
-    return view('welcome');
+Route::prefix('patients')->group(function() {
+    Route::get('/', 'PatientsController@index');
 });
