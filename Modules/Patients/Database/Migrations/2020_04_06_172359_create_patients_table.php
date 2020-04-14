@@ -15,10 +15,12 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->char('patient_id', 6),
             $table->foreignId('user_id')->constrained();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('middlename')->nullable();
+            $table->enum('gender', ['male', 'female']);
             $table->date('dob');
             $table->string('passport_series', 2);
             $table->string('passport_number', 7);
