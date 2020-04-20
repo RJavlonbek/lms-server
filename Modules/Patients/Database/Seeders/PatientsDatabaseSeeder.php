@@ -17,5 +17,6 @@ class PatientsDatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(PatientsTableSeeder::class);
+        $this->call(PatientCareerInfoTableSeeder::class);
     }
 }

@@ -24,7 +24,8 @@ class UsersTableSeeder extends Seeder
             'middlename' => '',
             'email' => 'javlonarjei042@gmail.com',
             'password' => bcrypt('12345'),
-            'role' => 'admin'
+            'role' => 'admin',
+            'status' => 'active'
         ]);
 
         // $this->call("OthersTableSeeder");

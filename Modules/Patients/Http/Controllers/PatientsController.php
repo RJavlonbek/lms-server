@@ -17,7 +17,8 @@ class PatientsController extends Controller
     {
         $patients = Patient::all();
         foreach($patients as $patient){
-            $patient->user = $patient->user;
+            $patient->user;
+            $patient->patient_career_infos;
         }
         
         return $patients;

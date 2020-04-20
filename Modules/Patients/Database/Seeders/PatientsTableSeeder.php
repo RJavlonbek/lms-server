@@ -18,10 +18,12 @@ class PatientsTableSeeder extends Seeder
         Model::unguard();
 
         DB::table('patients')->insert([
+            'patient_id'=>'P00001',
             'user_id' => 1,
             'firstname' => 'Jasur',
             'lastname' => 'Khodjaev',
             'dob' => '1975-08-09',
+            'gender'=>'male',
             'passport_series' => 'AB',
             'passport_number' => '3123453',
             'address' => 'Ziyolilar 9, Tashkent',

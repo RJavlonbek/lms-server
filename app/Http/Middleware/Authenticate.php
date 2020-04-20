@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class Authenticate extends Middleware
 {
@@ -21,6 +22,16 @@ class Authenticate extends Middleware
     }
 
     public function handle($request, Closure $next){
+        // if(Auth::check()){
+        //     return $next($request);
+        // }
+
+        // return Auth::onceBasic() ?: $next($request);
+
+        // return response()->json([
+        //     'message' => 'unathenticatedd'
+        // ]);
+
         return $next($request);
     }
 }

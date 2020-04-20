@@ -5,6 +5,8 @@ namespace Modules\Users\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Modules\Users\Entities\User;
 
 class UsersController extends Controller
 {
@@ -14,7 +16,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('users::index');
+        $users = User::all();
+        foreach($users as $user){
+            $user->patients;
+        }
+
+        return response()->json($users);
     }
 
     /**
@@ -75,5 +82,10 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getActiveUser(Request $request){
+        //return 'get user';
+        return response()->json(Auth::user());
     }
 }

@@ -15,7 +15,7 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('patient_id', 6),
+            $table->char('patient_id', 6);
             $table->foreignId('user_id')->constrained();
             $table->string('firstname');
             $table->string('lastname');

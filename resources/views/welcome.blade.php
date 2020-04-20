@@ -96,5 +96,17 @@
                 </div>
             </div>
         </div>
+        <div>
+            <form action="/login" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <input type="text" name="email" placeholder="email" />
+                <input type="text" name="password" placeholder="password" />
+                <button type="submit">Login</button>
+            </form>
+
+            <div>
+                {{ json_encode(Auth::user()) }}
+            </div>
+        </div>
     </body>
 </html>

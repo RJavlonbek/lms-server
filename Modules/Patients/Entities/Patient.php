@@ -11,4 +11,8 @@ class Patient extends Model
     public function user(){
     	return $this->belongsTo('Modules\Users\Entities\User');
     }
+
+    public function patient_career_infos(){
+    	return $this->hasMany('Modules\Patients\Entities\PatientCareerInfo');
+    }
 }

@@ -20,5 +20,8 @@ Route::get('/', function () {
 	} catch (\Exception $e) {
 	    die(env('DB_HOST').env('DB_CONNECTION')."Could not connect to the database.  Please check your configuration. error:");
 	}
+	//Auth::logout();
     return view('welcome');
 });
+
+
