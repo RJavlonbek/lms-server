@@ -19,6 +19,7 @@ Route::post('/login', 'LoginController@authenticate');
 Route::group(['middleware'=>['auth:api']], function(){
 	Route::prefix('users')->group(function(){
 		Route::get('/list', 'UsersController@index');
+		Route::get('/doctors/list', 'UsersController@getDoctors');
 		Route::get('/active', 'UsersController@getActiveUser');
 	});
 });

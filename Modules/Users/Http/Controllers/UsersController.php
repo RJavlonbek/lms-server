@@ -24,6 +24,12 @@ class UsersController extends Controller
         return response()->json($users);
     }
 
+    public function getDoctors(){
+        $doctors = User::where('role', '=', 'doctor')->get();
+
+        return response()->json($doctors);
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Response
