@@ -22,10 +22,15 @@ class CreatePatientsTable extends Migration
             $table->string('middlename')->nullable();
             $table->enum('gender', ['male', 'female']);
             $table->date('dob');
+            $table->string('birth_place');
             $table->string('passport_series', 2);
             $table->string('passport_number', 7);
+            $table->date('passport_given_date');
+            $table->string('passport_given_place');
             $table->string('address', 100);
             $table->string('phone', 15);
+            $table->string('photo');
+            $table->char('blood_group', 5);
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Patients\Entities\Patient;
+use DB;
 
 class PatientsController extends Controller
 {
@@ -13,13 +14,23 @@ class PatientsController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function list()
     {
-        $patients = Patient::all();
-        foreach($patients as $patient){
-            $patient->user;
-            $patient->patient_career_infos;
-        }
+        $patients = Patient::select(
+            'id',
+            'photo',
+            'patient_id',
+            'user_id',
+            'firstname',
+            'lastname',
+            'middlename',
+            'gender',
+            'dob',
+            DB::raw("CONCAT('passport_series', 'passport_number') as passport"),
+            'address',
+            'phone',
+            'created_at'
+        )->get();
         
         return $patients;
         //return response()->json($patients->user);
@@ -50,9 +61,29 @@ class PatientsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function show($id)
+    public function view($id)
     {
-        return view('patients::show');
+        //return $id;
+        $patient = Patient::select(
+            'id',
+            'photo',
+            'patient_id',
+            'user_id',
+            'firstname',
+            'lastname',
+            'middlename',
+            'gender',
+            'dob',
+            DB::raw("CONCAT('passport_series', 'passport_number') as passport"),
+            'address',
+            'phone',
+            'created_at'
+        )->find($id);
+        
+        $patient->user;
+        $patient->patient_career_infos;
+
+        return response()->json($patient);
     }
 
     /**

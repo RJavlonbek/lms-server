@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['auth:api']], function(){
 	Route::prefix('patients')->group(function(){
-		Route::get('/list', 'PatientsController@index');
+		Route::get('/list', 'PatientsController@list');
+		Route::get('/view/{id}', 'PatientsController@view');
 	});
 });
