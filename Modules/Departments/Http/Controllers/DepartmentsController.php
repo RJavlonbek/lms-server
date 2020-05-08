@@ -1,40 +1,28 @@
 <?php
 
-namespace Modules\Patients\Http\Controllers;
+namespace Modules\Departments\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Patients\Entities\Patient;
-use DB;
+use Modules\Departments\Entities\Department;
 
-class PatientsController extends Controller
+class DepartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function list()
+    public function index()
     {
-        $patients = Patient::select(
+        //return view('departments::index');
+        $departments = Department::select(
             'id',
-            'photo',
-            'patient_id',
-            'user_id',
-            'firstname',
-            'lastname',
-            'middlename',
-            'gender',
-            'dob',
-            DB::raw("CONCAT(passport_series, passport_number) as passport"),
-            'address',
-            'phone',
-            'created_at'
+            'name',
+            'status'
         )->get();
-        
-        return $patients;
-        //return response()->json($patients->user);
-        //return view('patients::index');
+
+        return response()->json($departments);
     }
 
     /**
@@ -43,7 +31,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        return view('patients::create');
+        return view('departments::create');
     }
 
     /**
@@ -61,18 +49,9 @@ class PatientsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function view($id)
+    public function show($id)
     {
-        //return $id;
-        $patient = Patient::select(
-            '*',
-            DB::raw("CONCAT(passport_series, passport_number) as passport")
-        )->find($id);
-        
-        $patient->user;
-        $patient->patient_career_infos;
-
-        return response()->json($patient);
+        return view('departments::show');
     }
 
     /**
@@ -82,7 +61,7 @@ class PatientsController extends Controller
      */
     public function edit($id)
     {
-        return view('patients::edit');
+        return view('departments::edit');
     }
 
     /**

@@ -1,0 +1,13 @@
+{
+    "name": "Departments",
+    "alias": "departments",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Departments\\Providers\\DepartmentsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

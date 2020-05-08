@@ -19,7 +19,7 @@ class PatientsTableSeeder extends Seeder
 
         DB::table('patients')->insert([
             'patient_id'=>'P00001',
-            'user_id' => 1,
+            'user_id' => 1, // Javlonbek Rakhimberdiev
             'firstname' => 'Jasur',
             'lastname' => 'Khodjaev',
             'dob' => '1975-08-09',
