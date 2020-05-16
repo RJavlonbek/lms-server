@@ -31,6 +31,7 @@ class CreatePatientsTable extends Migration
             $table->string('phone', 15);
             $table->string('photo');
             $table->char('blood_group', 5);
+            $table->string('current_condition');
             $table->timestamps();
         });
     }

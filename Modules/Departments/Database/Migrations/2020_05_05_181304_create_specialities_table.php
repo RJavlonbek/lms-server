@@ -17,6 +17,7 @@ class CreateSpecialitiesTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('department_id')->constrained();
             $table->string('name');
+            $table->string('description')->default('');
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });

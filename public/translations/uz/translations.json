@@ -1,0 +1,12 @@
+{
+  "hello": "Salom",
+  "menu": {
+    "add": "add"
+  },
+  "patient": {
+    "add": "Qo'shish",
+    "edit": "Tahrirlash",
+    "patients": "Bemorlar",
+    "register": "Registratsiya"
+  }
+}
